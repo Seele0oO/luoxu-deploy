@@ -1,0 +1,13 @@
+:80 {
+    # 建议设置验证,因为后端数据客户端去请求的
+    basicauth /* {
+        // username:password 
+        username $2a$14$tyfQRFjKh7ELs6HIvxw4ZeBt9danDdtKHnLTNFFlS.5Pzy0gDf80y
+    }
+
+    route /luoxu* {
+        reverse_proxy luoxu:9008
+    }
+
+    reverse_proxy web:3000
+}
